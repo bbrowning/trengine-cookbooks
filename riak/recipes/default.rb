@@ -45,7 +45,7 @@ end
 
 service "riak" do
   supports :start => true, :restart => true, :stop => true, :status => true
-  status_command "ping"
+  status_command "#{node[:riak][:src_binary]} ping"
   subscribes :restart, resources(:bash => "build_riak")
   action [:enable, :start]
 end

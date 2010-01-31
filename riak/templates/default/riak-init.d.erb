@@ -2,4 +2,4 @@
 
 PATH=$PATH:<%= @node[:erlang][:install_path] %>/bin
 export HOME=<%= @node[:riak][:install_path] %>
-<%= @node[:riak][:install_path] %>/bin/riak $*
+<%= @node[:riak][:src_binary] %> $*
