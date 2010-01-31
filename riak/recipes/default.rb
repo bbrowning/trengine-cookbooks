@@ -18,6 +18,9 @@
 # limitations under the License.
 #
 
+include_recipe "build-essential"
+include_recipe "runit"
+
 riak_version = node[:riak][:version]
 
 remote_file "/tmp/riak-#{riak_version}.tar.gz" do
@@ -34,4 +37,10 @@ bash "build_riak" do
     cp -r rel/riak #{node[:riak][:install_path]}
   EOH
   creates node[:riak][:src_binary]
+end
+
+runit_service "riak"
+
+service "riak" do
+  subscribes :restart, resources(:bash => "build_riak")
 end
