@@ -5,6 +5,6 @@ description      "Installs/Configures riak"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.rdoc'))
 version          "0.1"
 
-%w{ build-essential erlang runit }.each do |cb|
+%w{ build-essential erlang }.each do |cb|
   depends cb
 end

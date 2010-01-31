@@ -19,7 +19,6 @@
 #
 
 include_recipe "build-essential"
-include_recipe "runit"
 
 riak_version = node[:riak][:version]
 
@@ -39,8 +38,13 @@ bash "build_riak" do
   creates node[:riak][:src_binary]
 end
 
-runit_service "riak"
+template "/etc/init.d/riak" do
+  source "riak-init.d.erb"
+  mode "0755"
+end
 
 service "riak" do
+  support :start => true, :restart => true, :stop => true
   subscribes :restart, resources(:bash => "build_riak")
+  action [:enable, :start]
 end
