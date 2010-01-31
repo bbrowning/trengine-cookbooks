@@ -1,0 +1,26 @@
+= DESCRIPTION:
+
+Installs erlang from package OR source code
+
+= REQUIREMENTS:
+
+== Cookbooks:
+
+* build-essential (for erlang::source)
+
+== Platform:
+
+Debian or Ubuntu though my work where 'build-essential' works
+
+= ATTRIBUTES: 
+
+* version - for erlang::source, sets the version to install
+* install_path - for erlang::source, sets the --prefix location
+* src_binary - for erlang::source, sets the binary location
+
+= USAGE:
+
+Provides two ways to install and configure erlang.
+
+* Install via native package (erlang::default)
+* Install via compiled source (erlang::source)

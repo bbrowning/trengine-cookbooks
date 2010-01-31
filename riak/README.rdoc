@@ -1,0 +1,18 @@
+= DESCRIPTION:
+
+Installs Riak from source
+
+= REQUIREMENTS:
+
+== Cookbooks:
+
+* erlang
+
+= ATTRIBUTES: 
+
+* version - sets the version to install
+* install_path - sets the --prefix location
+* src_binary - sets the binary location
+
+= USAGE:
+
