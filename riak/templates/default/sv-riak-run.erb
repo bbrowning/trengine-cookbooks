@@ -1,4 +1,4 @@
 #!/bin/sh
-PATH=$PATH:<%= @node[:erlang][:install_path]/bin %>
+PATH=$PATH:<%= @node[:erlang][:install_path] %>/bin
 exec 2>&1
 exec <%= @node[:riak][:install_path] %>/bin/riak start
