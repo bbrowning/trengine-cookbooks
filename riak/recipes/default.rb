@@ -44,7 +44,7 @@ template "/etc/init.d/riak" do
 end
 
 service "riak" do
-  support :start => true, :restart => true, :stop => true
+  supports :start => true, :restart => true, :stop => true
   subscribes :restart, resources(:bash => "build_riak")
   action [:enable, :start]
 end
